@@ -10,6 +10,11 @@ import edu.eci.pdsw.orderCalculator.validator.TaxValidator;
 
 public class Pos {
 
+    private static OrdersManager createManager(){
+         return new OrdersManager();
+
+    }
+
     private static void loadOrders(OrdersManager manager) {
 
         Order o = new Order();
@@ -27,8 +32,9 @@ public class Pos {
         manager.placeOrder(o);
     }
 
-    public static void main(BillCalculator type, TaxValidator tax) throws OrderCalculatorException {
-        OrdersManager manager = new OrdersManager();
+    public static void main(String a[]) throws OrderCalculatorException {
+        //OrdersManager manager = new OrdersManager();
+        OrdersManager manager = createManager();
         loadOrders(manager);
 
         System.out.println(manager.calculateOrderTotal(0));

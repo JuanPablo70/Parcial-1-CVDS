@@ -3,6 +3,7 @@ package edu.eci.pdsw.orderCalculator.calculator.impl;
 import edu.eci.pdsw.orderCalculator.calculator.BillCalculator;
 import edu.eci.pdsw.orderCalculator.model.Dish;
 import edu.eci.pdsw.orderCalculator.model.Order;
+import edu.eci.pdsw.orderCalculator.services.DefaultFactoryMethod;
 import edu.eci.pdsw.orderCalculator.validator.TaxValidator;
 import edu.eci.pdsw.orderCalculator.validator.impl.StandardTaxValidator;
 
@@ -11,7 +12,7 @@ public class TaxBillCalculator implements BillCalculator {
 	private TaxValidator tv;
 
 	public TaxBillCalculator() {
-		tv = new StandardTaxValidator();
+		tv = new DefaultFactoryMethod().createTax();
 	}
 
     public int calculatePrice(Order o) {
