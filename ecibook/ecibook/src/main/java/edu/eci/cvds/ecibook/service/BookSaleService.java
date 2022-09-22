@@ -17,8 +17,40 @@ public class BookSaleService {
 	 * @return The amount to be charged to the client
 	 */
 	public BigDecimal calculateCost(final BigDecimal bookCategory, final DiscountCategory discountCategory) {
+		BigDecimal one = new BigDecimal(1);
+		BigDecimal ten = new BigDecimal(10);
+		BigDecimal eleven = new BigDecimal(11);
+		BigDecimal twenty = new BigDecimal(20);
+		BigDecimal twentyOne = new BigDecimal(21);
+		BigDecimal thirty = new BigDecimal(30);
 
-		return BigDecimal.TEN;
+		BigDecimal price1 = new BigDecimal(25000);
+		BigDecimal price2 = new BigDecimal(50000);
+		BigDecimal price3 = new BigDecimal(100000);
+		BigDecimal discount1 = new BigDecimal(0.9);
+		BigDecimal discount2 = new BigDecimal(0.8);
+		BigDecimal result = null;
+		if ((bookCategory.compareTo(one) == 1 &&  bookCategory.compareTo(ten) != 1 && bookCategory.compareTo(ten) != 0) && discountCategory.equals(DiscountCategory.EMPLOYEE)) {
+			result = price1.multiply(discount1);
+		} else if ((bookCategory.compareTo(one) == 1 &&  bookCategory.compareTo(ten) != 1 && bookCategory.compareTo(ten) != 0) && discountCategory.equals(DiscountCategory.STUDENT)){
+			result = price1.multiply(discount2);
+		} else if ((bookCategory.compareTo(one) == 1 &&  bookCategory.compareTo(ten) != 1 && bookCategory.compareTo(ten) != 0) && discountCategory.equals(DiscountCategory.OTHER)) {
+			result = price1;
+		} else if ((bookCategory.compareTo(eleven) == 1 &&  bookCategory.compareTo(twenty) != 1 && bookCategory.compareTo(twenty) != 0) && discountCategory.equals(DiscountCategory.EMPLOYEE)) {
+			result = price2.multiply(discount1);
+		} else if ((bookCategory.compareTo(eleven) == 1 &&  bookCategory.compareTo(twenty) != 1 && bookCategory.compareTo(twenty) != 0) && discountCategory.equals(DiscountCategory.STUDENT)) {
+			result = price2.multiply(discount2);
+		} else if ((bookCategory.compareTo(eleven) == 1 &&  bookCategory.compareTo(twenty) != 1 && bookCategory.compareTo(twenty) != 0) && discountCategory.equals(DiscountCategory.OTHER)) {
+			result = price2;
+		} else if ((bookCategory.compareTo(twentyOne) == 1 &&  bookCategory.compareTo(thirty) != 1 && bookCategory.compareTo(thirty) != 0) && discountCategory.equals(DiscountCategory.EMPLOYEE)) {
+			result = price3.multiply(discount1);
+		} else if ((bookCategory.compareTo(twentyOne) == 1 &&  bookCategory.compareTo(thirty) != 1 && bookCategory.compareTo(thirty) != 0) && discountCategory.equals(DiscountCategory.STUDENT)) {
+			result = price3.multiply(discount2);
+		} else if ((bookCategory.compareTo(twentyOne) == 1 &&  bookCategory.compareTo(thirty) != 1 && bookCategory.compareTo(thirty) != 0) && discountCategory.equals(DiscountCategory.OTHER)) {
+			result = price3;
+		}
+
+		return result;
 	}
 
 	/*

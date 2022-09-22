@@ -16,6 +16,7 @@ public class BookSaleServiceTest {
 	 */
 	private BookSaleService service = new BookSaleService();
 
+	
 	@Test
 	public void testEmployeeTen() {
 		BigDecimal number = new BigDecimal(3);
@@ -23,6 +24,8 @@ public class BookSaleServiceTest {
 		BigDecimal discount = new BigDecimal(0.9);
 		Assert.assertEquals(cost.multiply(discount),  service.calculateCost(number, DiscountCategory.EMPLOYEE));
 	}
+
+	 
 
 	@Test
 	public void testStudentTen() {
