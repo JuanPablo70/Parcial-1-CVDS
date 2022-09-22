@@ -1,10 +1,12 @@
 package edu.eci.pdsw.orderCalculator.main;
 
+import edu.eci.pdsw.orderCalculator.calculator.BillCalculator;
 import edu.eci.pdsw.orderCalculator.model.Order;
 import edu.eci.pdsw.orderCalculator.model.OrderCalculatorException;
 import edu.eci.pdsw.orderCalculator.model.Dish;
 import edu.eci.pdsw.orderCalculator.model.DishType;
 import edu.eci.pdsw.orderCalculator.services.OrdersManager;
+import edu.eci.pdsw.orderCalculator.validator.TaxValidator;
 
 public class Pos {
 
@@ -25,7 +27,7 @@ public class Pos {
         manager.placeOrder(o);
     }
 
-    public static void main(String a[]) throws OrderCalculatorException {
+    public static void main(BillCalculator type, TaxValidator tax) throws OrderCalculatorException {
         OrdersManager manager = new OrdersManager();
         loadOrders(manager);
 

@@ -14,7 +14,7 @@ public class OrdersManager {
     private List<Order> orders;
     
     public OrdersManager() {
-    	calc = new BasicBillCalculator();
+    	calc = new DefaultFactoryMethod().createCalculator();
         orders = new LinkedList<Order>();
     }
 
